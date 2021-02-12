@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block title %}HVT-Ticketing System-Client Enquiries {% endblock %}
+{% block content %}
+
+
+{% if user.is_authenticated %}
+    <div class="row">
+        <div class="col-ml-8">
+            <h5>Client Enquiries</h5>
+            <div class="card card-body">
+                <table class="table table-condensed table-hover table-bordered">
+                    <tr>
+                        <th>Enq #</th>
+                        <th>Date Submitted</th>
+                        <th>Fault, Request or New Report Subjet Title </th>
+                        <th>Catergory</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+        
+                    {% for i in object_list%}
+                    <tbody> 
+                        <tr>
+                            <td>{{ i.Enq_No }}</td>
+                            <td>{{ i.date_created }}</td>
+                            <td>{{ i.Subject_Title }}</td>
+                            <td><h6 align="center"><a class="black" href="/edit/{{ patient1.id }}">Edit</a></h6></td>
+                            <td><h6 align="center"><a class="black" href="/destroy/{{ patient1.id }}">Delete</a></h6></td>
+                           
+                        </tr>
+                        
+                    </tbody>
+                
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="col-sm-2">
+            <div class="bs-component">
+                <div class="btn-group-vertical" data-toggle="buttons">
+                    <a href="{% url 'client_enq' %}"><button class="btn-primary btn" style="color: white;">Client Enquiries</button></a>
+                    <br>
+                    <a href="{% url 'ticket_mgt' %}"><button class="btn-primary btn" style="color: white;">Ticket Management</button></a>
+                    <br>
+                    
+                    <a href="{% url 'client_info' %}"><button class="btn-primary btn" style="color: white;">Client Information</button></a>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+ {% endblock %}
+

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+    <body style="color: darkgrey;">
+        <div id="form_cont">
+            <div id="form_props">
+                <div>
+                    <p align="top-margin" style="width: 100%;">
+                    <span>
+                        <font color="#fffff"></font>
+                    </span>
+                    </p>
+                    <h1 style="text-align: center;">
+                    <font color="#fffff">HVT-Ticketing System</font>
+                    </h1>
+                    <br>
+                    <br>
+                    <p></p>
+                </div>
+                <form method="post" class="form-login" style="text-align: center">
+                    {% csrf_token %}
+                    <p align="center">
+                        <input type="text" name="username" placeholder="Username" class="form-control" style="text-align: center; width: 225px; height: 30px; background-color: white;" required>
+                    </p>
+                    <p align="center">
+                        <input type="password" name="password" placeholder="**password**" class="form-control" style="text-align: center; width: 225px; height: 30px; background-color: white;" required>
+                    </p>
+                    <p align="center">
+                        <input type="submit" value="LOGIN" class="btn btn-secondary" style="border: none;">
+                    </p>
+                    <p align="center">
+                        <br>
+                        <font color="marron" size="+2">Login to Access System Control!</font>
+                    </p>
+                </form>
+            </div>
+
+        </div>
+        
+
+    </body>
+   
+{% endblock %}

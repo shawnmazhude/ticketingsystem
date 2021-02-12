@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block content %}
+
+{% if user.is_authenticated %}
+<div class="col-ml-8">
+    <h5>Tickets In Progress</h5>
+    <div class="card card-body">
+        <table class="table table-condensed table-hover table-bordered">
+            <tr>
+                <th>Ticket Id</th>
+                <th>Ticket subject</th>
+                <th>Nature </th>
+                <th>Catergory</th>
+                <th>Reported By</th>
+                <th>Assigned To </th>
+                <th>Status </th>
+                <th>Request To:</th>
+            </tr>
+        </table>
+    </div>
+</div>
+    <div class="col-sm-2">
+        <div class="bs-component">
+            <div class="btn-group-vertical" data-toggle="buttons">
+                <a href="{% url 'home' %}"><button class="btn-primary btn" style="color: white;">Tickets In Progress</button></a>
+                <br>
+                <a href="{% url 'pending' %}"><button class="btn-primary btn" style="color: white;">Pending Submissions</button></a>
+                <br>
+                <div class="dropdown">
+                    <button class="btn btn-primary dropdown-toggle" type="button" id="myDropdown" data-bs-toggle="dropdown" aria-expanded="false">Submit Fault / Request</button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <li><a class="dropdown-item" href="{% url 'description_detail' %}">New Fault</a></li>
+                      <li><a class="dropdown-item" href="#">New Request</a></li>
+                    </ul>
+                  </div>
+                <br>
+                <script>
+                    function myDrop() {
+                        document.getElementById("myDropdown").classList.toggle("show");
+                    }
+                    window.onclick = function (event) {
+                        if (!event.target.matches('.dropbtn')) {
+                            var dropdowns = document.getElementsByClassName("dropdown-content");
+                            var i;
+                            for (i=0; i<dropdowns.length; i++){
+                                var openDropdown = dropdowns[i];
+                                if (openDropdown.classList.contains('show')) {
+                                    openDropdown.classList.remove('show');
+                                }
+                            }
+                        }
+                    }
+                </script>
+                <a href="#"><button class="btn-primary btn" style="color: white;">Report Template</button></a>
+                <br>
+            </div>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}
+

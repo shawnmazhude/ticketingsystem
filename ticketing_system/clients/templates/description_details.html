@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-sm-10">
+            <div>
+                <legend>Enter Detailed Description</legend>
+                <p class="info">
+                    "Hint: Enter full detailed Description of the problem or request"
+                </p>
+            </div>
+            <div>
+                <form action="" method="POST" width="60%" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form }}
+                    
+                    
+<br><br>
+                    <input type="submit" name="submit" value="Submit" class="btn-primary btn" style="color: white;">
+                   
+                    </input>
+                    
+
+                    <input type="reset" name="reset" value="Reset" class="btn-primary btn" style="color: white;">
+                    
+                    </input>
+                    
+                    
+                    <a href="{% url 'home' %}"><button class="btn-primary btn" style="color: white;">Close</button></a>
+                    <br>
+                    <br>
+                    <br>
+                </form>
+            </div>
+        </div>
+            <div class="col-sm-2">
+                <div class="bs-component">
+                    <div class="btn-group-vertical" data-toggle="buttons">
+                        <a href="{% url 'home' %}"><button class="btn-primary btn" style="color: white;">Tickets In Progress</button></a>
+                        <br>
+                        <a href="{% url 'pending' %}"><button class="btn-primary btn" style="color: white;">Pending Submissions</button></a>
+                        <br>
+                        <div class="dropdown">
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="myDropdown" data-bs-toggle="dropdown" aria-expanded="false">Submit Fault / Request</button>
+                            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                              <li><a class="dropdown-item" href="{% url 'description_detail' %}">New Fault</a></li>
+                              <li><a class="dropdown-item" href="#">New Request</a></li>
+                            </ul>
+                          </div>
+                        <br>
+                        <script>
+                            function myDrop() {
+                                document.getElementById("myDropdown").classList.toggle("show");
+                            }
+                            window.onclick = function (event) {
+                                if (!event.target.matches('.dropbtn')) {
+                                    var dropdowns = document.getElementsByClassName("dropdown-content");
+                                    var i;
+                                    for (i=0; i<dropdowns.length; i++){
+                                        var openDropdown = dropdowns[i];
+                                        if (openDropdown.classList.contains('show')) {
+                                            openDropdown.classList.remove('show');
+                                        }
+                                    }
+                                }
+                            }
+                        </script>
+                         <a href="#"><button class="btn-primary btn" style="color: white;">Report Template</button></a>
+                         <br>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

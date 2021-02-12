@@ -1,0 +1,34 @@
+
+
+
+     <body style="color: darkgrey;">
+        <div id="form_cont">
+            <div id="form_props">
+                <div>
+                    <p align="top-margin" style="width: 100%;">
+                    <span>
+                        <font color="#fffff"></font>
+                    </span>
+                    </p>
+                    <h1 style="text-align: center;">
+                    <font color="#fffff">HVT-Ticketing System</font>
+                    </h1>
+                    <br>
+                    <br>
+                    <p></p>
+                </div>
+                <form method="post" class="form-register" style="text-align: center">
+                    {% csrf_token %}
+                    {{ form }}
+                    
+                    <p align="center">
+                        <input type="submit" value="register" class="btn btn-secondary" style="border: none;">
+                    </p>
+                </form>
+            </div>
+
+        </div>
+        
+
+    </body>
+   
